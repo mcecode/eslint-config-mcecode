@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "npm test && npm run lint && node scripts/build.js",
+    "format": "prettier . -w",
+    "lint": "eslint . --cache --cache-location node_modules -f codeframe && prettier . -c",
+    "test": "ava --verbose"
+  },
+  "devDependencies": {
+    "ava": "^3.15.0",
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "2.3.2"
+  }
+}

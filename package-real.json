@@ -1,0 +1,14 @@
+{
+  "name": "eslint-config-mcecode",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "author": "Matthew Espino",
+  "description": "An opinionated set of ESLint rules that work with Prettier out of the box.",
+  "keywords": ["eslint", "eslintconfig", "prettier"],
+  "homepage": "https://github.com/mcecode/eslint-config-mcecode#readme",
+  "bugs": "https://github.com/mcecode/eslint-config-mcecode/issues",
+  "repository": "mcecode/eslint-config-mcecode",
+  "peerDependencies": {
+    "eslint": ">=7.15.0"
+  }
+}
