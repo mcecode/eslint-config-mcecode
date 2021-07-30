@@ -142,7 +142,7 @@ If you wish to use single (') quotes or backticks for strings, you can set your 
 }
 ```
 
-### On special comments
+### Special comments
 
 ESLint allows disabling rule warnings using [configuration comments](https://eslint.org/docs/user-guide/configuring/rules#using-configuration-comments-1) such as `/* eslint-disable no-empty */`. This package enables rules whose warnings can be suppressed using regular comments that can help provide more context than just turning off the rule.
 
@@ -193,8 +193,8 @@ If you find anything wrong or would like to suggest changes, issues and pull req
 
 The `rules` directory contains the files that you would most likely be interested in. The following are the files:
 
-- `base-rules.js`, contains rules that should not conflict with Prettier
-- `prettier-special-rules.js`, contains the special rules that may conflict with Prettier, [as discussed earlier](#when-using-with-prettier)
+- `base-rules.js` contains rules that should not conflict with Prettier
+- `prettier-special-rules.js` contains the special rules that may conflict with Prettier, [as discussed earlier](#when-using-with-prettier)
 
 Be sure to find and fix any errors before you submit a pull request by running the following commands:
 
