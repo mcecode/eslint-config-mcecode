@@ -60,7 +60,7 @@ To work with Prettier, this package does not turn on any rules that may conflict
 
 In your `.eslintrc.json`:
 
-```json
+```jsonc
 {
   "extends": [
     // ...other configs
