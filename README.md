@@ -6,7 +6,7 @@ An opinionated set of [ESLint](https://github.com/eslint/eslint) rules that work
 
 ## Requirements
 
-This package requires ESLint version 7.15.0 or later.
+This package requires ESLint version 7.15.0 or later. It also assumes that you are working in an ECMAScript 6 or later environment.
 
 ## Installation
 
@@ -20,34 +20,34 @@ npm install --save-dev eslint-config-mcecode
 
 [Extend](https://eslint.org/docs/user-guide/configuring/configuration-files#extending-configuration-files) this package by adding it to your `.eslintrc.*` file or in the `eslintConfig` property of your `package.json`.
 
-```js
-// In your .eslintrc.js or .eslintrc.cjs
+In your `.eslintrc.js` or `.eslintrc.cjs`:
 
+```js
 module.exports = {
-  extend: "mcecode"
+  extends: "mcecode"
 };
 ```
 
-```yaml
-# In your .eslintrc.yaml or .eslintrc.yml
+In your `.eslintrc.yaml` or `.eslintrc.yml`:
 
+```yaml
 extends: mcecode
 ```
 
-```jsonc
-// In your .eslintrc.json
+In your `.eslintrc.json`:
 
+```json
 {
-  "extend": "mcecode"
+  "extends": "mcecode"
 }
 ```
 
-```jsonc
-// In your package.json
+In your `package.json`:
 
+```json
 {
   "eslintConfig": {
-    "extend": "mcecode"
+    "extends": "mcecode"
   }
 }
 ```
@@ -56,13 +56,13 @@ extends: mcecode
 
 ### When using with other ESLint configs
 
-To work with Prettier, this package does not turn on any rules that may conflict with Prettier. It does not turn off rules. This means that if you plan to use it with other configs, you may still need to use [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) to turn off any rules that those packages turn on that may conflict with Prettier. However, [as will be discussed next](#when-using-with-prettier), this package enables special rules. These rules may be turned off if used with `eslint-config-prettier`. To prevent this, put this config at the end of your extend array.
+To work with Prettier, this package does not turn on any rules that may conflict with Prettier. It does not turn off rules. This means that if you plan to use it with other configs, you may still need to use [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) to turn off any rules that those packages turn on that may conflict with Prettier. However, [as will be discussed next](#when-using-with-prettier), this package enables special rules. These rules may be turned off if used with `eslint-config-prettier`. To prevent this, put this config at the end of your `extends` array.
 
-```jsonc
-// In your .eslintrc.json
+In your `.eslintrc.json`:
 
+```json
 {
-  "extend": [
+  "extends": [
     // ...other configs
     "prettier",
     "mcecode"
@@ -84,19 +84,19 @@ Prettier sets a soft line limit for code and cannot format long strings, regular
 
 This means that when using this package, you should set Prettier's `printWidth` option to a value less than 100.
 
-```jsonc
-// In your .prettierrc.json
+In your `.prettierrc.json`:
 
+```json
 {
   "printWidth": 90
 }
 ```
 
-Additionally, you may turn this rule off in your ESLint config if you do not wish to set hard limits on line length.
+Additionally, you may turn this rule off if you do not wish to set hard limits on line length.
 
-```jsonc
-// In your .eslintrc.json
+In your `.eslintrc.json`:
 
+```json
 {
   "rules": {
     "max-len": "off"
@@ -108,13 +108,13 @@ Additionally, you may turn this rule off in your ESLint config if you do not wis
 
 [ESLint docs](https://eslint.org/docs/rules/no-unexpected-multiline) | [Prettier docs](https://github.com/prettier/eslint-config-prettier#no-unexpected-multiline)
 
-There are some edge cases that you may run into where Prettier's formatting may conflict with this rule. Please refer to Prettier's documentation linked above which explains those edge cases.
+There are some edge cases that you may run into where Prettier's formatting may conflict with this rule. Please refer to Prettier's documentation linked above which explains those edge cases and how to mitigate them.
 
-You can turn this rule off if you do not want to risk running into those edge cases.
+If you do not want to deal with or risk running into those edge cases, you can turn this rule off.
 
-```jsonc
-// In your .eslintrc.json
+In your `.eslintrc.json`:
 
+```json
 {
   "rules": {
     "no-unexpected-multiline": "off"
@@ -132,9 +132,9 @@ This package enables this rule to enforce double (") quotes and to forbid backti
 
 If you wish to use single (') quotes or backticks for strings, you can set your config to support that based on the ESLint documentation linked above. You may also choose to turn this rule off.
 
-```jsonc
-// In your .eslintrc.json
+In your `.eslintrc.json`:
 
+```json
 {
   "rules": {
     "quotes": "off"
@@ -153,12 +153,11 @@ The following are the said rules:
 - [`default-case`](https://eslint.org/docs/rules/default-case)
 - [`no-fallthrough`](https://eslint.org/docs/rules/no-fallthrough)
 
-Below are examples of how to suppress warnings using meaningful comments:
+Below are examples of how to suppress their warnings using meaningful comments:
+
+Instead of disabling `no-empty` or `no-empty-function`, you can explain why they are empty.
 
 ```js
-// Instead of disabling 'no-empty' and 'no-empty-function', you can explain why
-// it is empty.
-
 try {
   throw new Error();
 } catch {
@@ -168,10 +167,11 @@ try {
 function doSomething() {
   // TODO: Do something with...
 }
+```
 
-// Instead of disabling 'default-case' and 'no-fallthrough', you can state why
-// fall through behavior or not putting a default case is intended.
+Instead of disabling `default-case` or `no-fallthrough`, you can state why fall through behavior or not putting a default case is intended.
 
+```js
 switch (key) {
   case 1: {
     // Some code
@@ -191,24 +191,34 @@ switch (key) {
 
 If you find anything wrong or would like to suggest changes, issues and pull requests are welcome.
 
-The `rules` directory contains the files that you would most likely be interested in. The following are the files:
+The [`rules`](rules) directory contains the files that would most likely be of interest to you. The following are the files:
 
-- `base-rules.js` contains rules that should not conflict with Prettier
-- `prettier-special-rules.js` contains the special rules that may conflict with Prettier, [as discussed earlier](#when-using-with-prettier)
+- [`base-rules.js`](rules/base-rules.js) contains rules that should not conflict with Prettier
+- [`prettier-special-rules.js`](rules/prettier-special-rules.js) contains rules that may conflict with Prettier, [as discussed earlier](#when-using-with-prettier)
 
-Be sure to find and fix any errors before you submit a pull request by running the following commands:
+Be sure to find and fix any errors before you submit a pull request by running the following commands.
+
+Install dev dependencies:
 
 ```sh
-# Install dev dependencies
 npm install
+```
 
-# Test if the rules you added are valid
+Test if the rules you added or changed are valid:
+
+```sh
 npm test
+```
 
-# Lint the code for possible errors
+Lint the code for possible errors:
+
+```sh
 npm run lint
+```
 
-# Format the code
+Format the code:
+
+```sh
 npm run format
 ```
 
@@ -221,7 +231,7 @@ This project adheres to the [Semantic Versioning 2.0 Specification](https://semv
 Major releases introduce changes that alter how ESLint lints your code which would most likely break tests or builds. These include:
 
 - Adding rules and/or options that enable new behavior
-- Removing options that disabled linting behavior; for example, removing the `ignoreUrls: true` option for the `max-len` rule would make ESLint start flagging lines that have long URLs, which would break tests and builds that currently pass
+- Removing options that disabled linting behavior (e.g., removing the [`ignoreUrls: true`](https://eslint.org/docs/rules/max-len#ignoreurls) option for the [`max-len`](https://eslint.org/docs/rules/max-len) rule would make ESLint start flagging lines that have long URLs, which may break tests and builds that currently pass)
 - Increasing the error level of a rule (i.e., setting a rule's ID from "warn" to "error")
 - Changing the package's required ESLint version
 
@@ -230,16 +240,16 @@ Major releases introduce changes that alter how ESLint lints your code which wou
 Minor releases introduce changes that alter how ESLint lints your code which would most likely not break tests or builds. These include:
 
 - Removing rules
-- Removing options that enabled linting behavior; for example, removing the `skipStrings: false` option for the `no-irregular-whitespace` rule would stop ESLint from checking strings with irregular white space characters, which would pass tests and builds that currently fail
+- Removing options that enabled linting behavior (e.g., removing the [`skipStrings: false`](https://eslint.org/docs/rules/no-irregular-whitespace#skipstrings) option for the [`no-irregular-whitespace`](https://eslint.org/docs/rules/no-irregular-whitespace) rule would stop ESLint from checking strings with irregular white space characters, which may pass tests and builds that currently fail)
 - Decreasing the error level of a rule (i.e., setting a rule's ID from "error" to "warn")
 
 ### Patch
 
 Patch releases introduce changes that do not alter how ESLint lints your code. These include:
 
-- Removing redundant rules and/or options; for example, setting the `defaultAssignment` option to `true` for the `no-unneeded-ternary` rule is unnecessary and does not do anything because it is the default option, therefore, it can be removed without changing ESLint's behavior
+- Removing redundant rules and/or options (e.g., setting the [`defaultAssignment`](https://eslint.org/docs/rules/no-unneeded-ternary#defaultassignment) option to `true` for the [`no-unneeded-ternary`](https://eslint.org/docs/rules/no-unneeded-ternary) rule is unnecessary and does not do anything because it is the default option, therefore, it can be removed without changing ESLint's behavior)
 
-## Licence
+## License
 
 Copyright 2021-present Matthew Espino
 
