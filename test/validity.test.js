@@ -1,10 +1,27 @@
 // Destructuring default fixes: https://github.com/avajs/ava/issues/2539.
 const { default: test } = require("ava");
 const { ESLint } = require("eslint");
+const { join } = require("path");
 
-// This instance uses the configurations set in the project's .eslintrc.js by
-// default.
-const eslint = new ESLint();
+const RULES_DIR = join(__dirname, "..", "rules");
+
+const eslint = new ESLint({
+  useEslintrc: false,
+  overrideConfig: {
+    env: {
+      es2021: true,
+      node: true
+    },
+    parserOptions: {
+      ecmaVersion: "latest"
+    },
+    rules: {
+      ...require(join(RULES_DIR, "base-rules")),
+      ...require(join(RULES_DIR, "prettier-special-rules"))
+    },
+    reportUnusedDisableDirectives: true
+  }
+});
 
 test("ESLint rules should be valid.", async (t) => {
   const [lintResults] = await eslint.lintText("");
