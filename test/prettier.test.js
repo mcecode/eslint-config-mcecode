@@ -1,12 +1,13 @@
 // Destructuring default fixes: https://github.com/avajs/ava/issues/2539
 const { default: test } = require("ava");
-const { join } = require("path");
 const { format } = require("util");
-
-const RULES_DIR = join(__dirname, "..", "rules");
+const {
+  BASE_RULES_FILE,
+  PRETTIER_SPECIAL_RULES_FILE
+} = require("../configs/paths");
 
 test("Base rules should have no conflicts with prettier rules.", (t) => {
-  const baseRules = Object.keys(require(join(RULES_DIR, "base-rules")));
+  const baseRules = Object.keys(require(BASE_RULES_FILE));
   const prettierRules = Object.keys(require("eslint-config-prettier").rules);
 
   const conflicts = [];
@@ -33,7 +34,7 @@ test("Prettier special rules used should be valid.", (t) => {
     "lines-around-comment": linesAroundComment,
     "no-confusing-arrow": noConfusingArrow,
     "no-tabs": noTabs
-  } = require(join(RULES_DIR, "prettier-special-rules"));
+  } = require(PRETTIER_SPECIAL_RULES_FILE);
 
   // 'curly' uses 'all' as it's default option so it's not necessary to check
   // whether it's error level is set higher than '0' or 'off', see:

@@ -6,10 +6,12 @@ const {
   writeFileSync
 } = require("fs");
 const { join } = require("path");
-
-const ROOT_DIR = join(__dirname, "..");
-const RULES_DIR = join(ROOT_DIR, "rules");
-const BUILD_DIR = join(ROOT_DIR, "build");
+const {
+  ROOT_DIR,
+  BUILD_DIR,
+  BASE_RULES_FILE,
+  PRETTIER_SPECIAL_RULES_FILE
+} = require("../configs/paths");
 
 const FILES_TO_COPY_FROM_ROOT_DIR = [
   { name: "CHANGELOG.md" },
@@ -22,8 +24,8 @@ const CONFIGS_TO_GENERATE_FROM_RULES_DIR = [
   {
     name: "index.js",
     rules: {
-      ...require(join(RULES_DIR, "base-rules")),
-      ...require(join(RULES_DIR, "prettier-special-rules"))
+      ...require(BASE_RULES_FILE),
+      ...require(PRETTIER_SPECIAL_RULES_FILE)
     }
   }
 ];

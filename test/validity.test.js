@@ -1,9 +1,10 @@
 // Destructuring default fixes: https://github.com/avajs/ava/issues/2539.
 const { default: test } = require("ava");
 const { ESLint } = require("eslint");
-const { join } = require("path");
-
-const RULES_DIR = join(__dirname, "..", "rules");
+const {
+  BASE_RULES_FILE,
+  PRETTIER_SPECIAL_RULES_FILE
+} = require("../configs/paths");
 
 const eslint = new ESLint({
   useEslintrc: false,
@@ -16,8 +17,8 @@ const eslint = new ESLint({
       ecmaVersion: "latest"
     },
     rules: {
-      ...require(join(RULES_DIR, "base-rules")),
-      ...require(join(RULES_DIR, "prettier-special-rules"))
+      ...require(BASE_RULES_FILE),
+      ...require(PRETTIER_SPECIAL_RULES_FILE)
     },
     reportUnusedDisableDirectives: true
   }
