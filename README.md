@@ -10,7 +10,7 @@ This package requires ESLint version 7.15.0 or later. It also assumes that you a
 
 ## Installation
 
-```sh
+```console
 npm install --save-dev eslint-config-mcecode
 ```
 
@@ -200,25 +200,25 @@ Be sure to find and fix any errors before you submit a pull request by running t
 
 Install dev dependencies:
 
-```sh
+```console
 npm install
 ```
 
 Test if the rules you added or changed are valid:
 
-```sh
+```console
 npm test
 ```
 
 Lint the code for possible errors:
 
-```sh
+```console
 npm run lint
 ```
 
 Format the code:
 
-```sh
+```console
 npm run format
 ```
 
