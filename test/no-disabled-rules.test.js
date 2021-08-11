@@ -13,18 +13,15 @@ test("There should be no disabled rules.", (t) => {
   };
   const rulesKeys = Object.keys(rules);
 
-  const disabledRules = [];
-  rulesKeys.forEach((key) => {
+  const disabledRules = rulesKeys.filter((key) => {
     const { [key]: ruleValue } = rules;
 
-    if (
+    return (
       ruleValue === "off" ||
       ruleValue === 0 ||
       (Array.isArray(ruleValue) &&
         (ruleValue[0] === "off" || ruleValue[0] === 0))
-    ) {
-      disabledRules.push(key);
-    }
+    );
   });
 
   if (disabledRules.length !== 0) {

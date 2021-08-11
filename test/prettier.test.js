@@ -10,12 +10,7 @@ test("Base rules should have no conflicts with prettier rules.", (t) => {
   const baseRules = Object.keys(require(BASE_RULES_FILE));
   const prettierRules = Object.keys(require("eslint-config-prettier").rules);
 
-  const conflicts = [];
-  baseRules.forEach((rule) => {
-    if (prettierRules.includes(rule)) {
-      conflicts.push(rule);
-    }
-  });
+  const conflicts = baseRules.filter((rule) => prettierRules.includes(rule));
 
   if (conflicts.length !== 0) {
     t.fail(`Conflict with prettier rules found: ${format("%O", conflicts)}`);
@@ -37,7 +32,7 @@ test("Prettier special rules used should be valid.", (t) => {
   } = require(PRETTIER_SPECIAL_RULES_FILE);
 
   // 'curly' uses 'all' as it's default option so it's not necessary to check
-  // whether it's error level is set higher than '0' or 'off', see:
+  // whether its error level is set higher than '0' or 'off', see:
   // https://eslint.org/docs/rules/curly#options.
   const errorLevelErrorMessage =
     "The error level of 'lines-around-comment', 'no-confusing-arrow', and " +
