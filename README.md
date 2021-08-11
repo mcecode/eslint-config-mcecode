@@ -56,7 +56,7 @@ In your `package.json`:
 
 ### When using with other ESLint configs
 
-To work with Prettier, this package does not turn on any rules that may conflict with Prettier. It does not turn off rules. This means that if you plan to use it with other configs, you may still need to use [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) to turn off any rules that those packages turn on that may conflict with Prettier. However, [as will be discussed next](#when-using-with-prettier), this package enables special rules. These rules may be turned off if used with `eslint-config-prettier`. To prevent this, put this config at the end of your `extends` array.
+To work with Prettier, this package does not turn on any rules that may conflict with Prettier. It does not turn off rules. This means that if you plan to use it with other configs, you may still need to use [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) to turn off any rules that those packages turn on that may conflict with Prettier. However, [as will be discussed next](#when-using-with-prettier), this package enables special rules. These rules may be turned off if used with eslint-config-prettier. To prevent this, put this config at the end of your `extends` array.
 
 In your `.eslintrc.json`:
 
@@ -232,7 +232,7 @@ Major releases introduce changes that alter how ESLint lints your code which wou
 
 - Adding rules and/or options that enable new behavior
 - Removing options that disabled linting behavior (e.g., removing the [`ignoreUrls: true`](https://eslint.org/docs/rules/max-len#ignoreurls) option for the [`max-len`](https://eslint.org/docs/rules/max-len) rule would make ESLint start flagging lines that have long URLs, which may break tests and builds that currently pass)
-- Increasing the error level of a rule (i.e., setting a rule's ID from "warn" to "error")
+- Increasing the error level of a rule (i.e., setting a rule's ID from `"warn"` to `"error"`)
 - Changing the package's required ESLint version
 
 ### Minor
@@ -240,8 +240,8 @@ Major releases introduce changes that alter how ESLint lints your code which wou
 Minor releases introduce changes that alter how ESLint lints your code which would most likely not break tests or builds. These include:
 
 - Removing rules
-- Removing options that enabled linting behavior (e.g., removing the [`skipStrings: false`](https://eslint.org/docs/rules/no-irregular-whitespace#skipstrings) option for the [`no-irregular-whitespace`](https://eslint.org/docs/rules/no-irregular-whitespace) rule would stop ESLint from checking strings with irregular white space characters, which may pass tests and builds that currently fail)
-- Decreasing the error level of a rule (i.e., setting a rule's ID from "error" to "warn")
+- Removing options that enabled linting behavior (e.g., removing the [`skipStrings: false`](https://eslint.org/docs/rules/no-irregular-whitespace#skipstrings) option for the [`no-irregular-whitespace`](https://eslint.org/docs/rules/no-irregular-whitespace) rule would stop ESLint from checking strings with irregular whitespace characters, which may pass tests and builds that currently fail)
+- Decreasing the error level of a rule (i.e., setting a rule's ID from `"error"` to `"warn"`)
 
 ### Patch
 
