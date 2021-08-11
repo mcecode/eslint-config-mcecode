@@ -1,6 +1,7 @@
 {
   "name": "eslint-config-mcecode",
   "version": "1.0.0",
+  "type": "commonjs",
   "license": "Apache-2.0",
   "author": "Matthew Espino",
   "description": "An opinionated set of ESLint rules that work with Prettier out of the box.",

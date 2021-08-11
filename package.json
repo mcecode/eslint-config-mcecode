@@ -1,5 +1,6 @@
 {
   "private": true,
+  "type": "commonjs",
   "scripts": {
     "build": "npm test && npm run lint && node scripts/build.js",
     "format": "prettier . -w",
