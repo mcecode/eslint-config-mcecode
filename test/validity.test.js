@@ -43,25 +43,11 @@ test("ESLint should not find errors.", async (t) => {
 });
 
 test("ESLint should find errors.", async (t) => {
-  const [lintResults] = await eslint.lintText(`
-    void function () { one = 1; }();
-    console.log(one);
-  `);
+  const [lintResults] = await eslint.lintText("label: void null;");
 
   const rulesViolated = lintResults.messages.map((message) => message.ruleId);
 
-  t.deepEqual(
-    [
-      "no-void",
-      "func-names",
-      "no-implicit-globals",
-      "max-statements-per-line",
-      "no-undef",
-      "no-undef"
-    ],
-    rulesViolated
-  );
-  t.is(lintResults.messages.length, 6);
-  t.is(lintResults.errorCount, 5);
-  t.is(lintResults.warningCount, 1);
+  t.deepEqual(["no-labels", "no-void"], rulesViolated);
+  t.is(lintResults.messages.length, 2);
+  t.is(lintResults.errorCount, 2);
 });
