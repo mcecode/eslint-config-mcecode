@@ -20,7 +20,7 @@ const FILES_TO_COPY_FROM_ROOT_DIR = [
   { name: "package-real.json", newName: "package.json" }
 ];
 
-const CONFIGS_TO_GENERATE_FROM_RULES_DIR = [
+const CONFIGS_TO_GENERATE_FROM_SRC_DIR = [
   {
     name: "index.js",
     rules: {
@@ -43,7 +43,7 @@ FILES_TO_COPY_FROM_ROOT_DIR.forEach((file) => {
   );
 });
 
-CONFIGS_TO_GENERATE_FROM_RULES_DIR.forEach((config) => {
+CONFIGS_TO_GENERATE_FROM_SRC_DIR.forEach((config) => {
   writeFileSync(
     join(BUILD_DIR, config.name),
     `module.exports=${JSON.stringify({ rules: config.rules })}`
