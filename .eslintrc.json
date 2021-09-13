@@ -3,9 +3,6 @@
     "es2021": true,
     "node": true
   },
-  "parserOptions": {
-    "ecmaVersion": "latest"
-  },
   "extends": "mcecode",
   "reportUnusedDisableDirectives": true
 }
