@@ -12,6 +12,6 @@
     "eslint": "^7.31.0",
     "eslint-config-mcecode": "^1.0.0",
     "eslint-config-prettier": "^8.3.0",
-    "prettier": "2.3.2"
+    "prettier": "2.4.0"
   }
 }
