@@ -13,14 +13,10 @@ const eslint = new ESLint({
       es2021: true,
       node: true
     },
-    parserOptions: {
-      ecmaVersion: "latest"
-    },
     rules: {
       ...require(BASE_RULES_FILE),
       ...require(PRETTIER_SPECIAL_RULES_FILE)
-    },
-    reportUnusedDisableDirectives: true
+    }
   }
 });
 
