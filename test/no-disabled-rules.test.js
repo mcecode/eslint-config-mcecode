@@ -1,4 +1,4 @@
-// Destructuring default fixes: https://github.com/avajs/ava/issues/2539.
+// Destructuring default fixes https://github.com/avajs/ava/issues/2539
 const { default: test } = require("ava");
 const { format } = require("util");
 const {

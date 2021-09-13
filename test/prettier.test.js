@@ -1,4 +1,4 @@
-// Destructuring default fixes: https://github.com/avajs/ava/issues/2539
+// Destructuring default fixes https://github.com/avajs/ava/issues/2539
 const { default: test } = require("ava");
 const { format } = require("util");
 const {
@@ -21,7 +21,7 @@ test("Base rules should have no conflicts with prettier rules.", (t) => {
 
 test("Prettier special rules used should be valid.", (t) => {
   // 'no-mixed-operators' is not used and also cannot be tested, see:
-  // https://github.com/prettier/eslint-config-prettier#no-mixed-operators.
+  // https://github.com/prettier/eslint-config-prettier#no-mixed-operators
   // 'max-len', 'no-unexpected-multiline', and 'quotes' cannot be tested but
   // usage is explained in the project's README.md.
   const {
@@ -31,9 +31,9 @@ test("Prettier special rules used should be valid.", (t) => {
     "no-tabs": noTabs
   } = require(PRETTIER_SPECIAL_RULES_FILE);
 
-  // 'curly' uses 'all' as it's default option so it's not necessary to check
+  // 'curly' uses 'all' as its default option so it is not necessary to check
   // whether its error level is set higher than '0' or 'off', see:
-  // https://eslint.org/docs/rules/curly#options.
+  // https://eslint.org/docs/rules/curly#options
   const errorLevelErrorMessage =
     "The error level of 'lines-around-comment', 'no-confusing-arrow', and " +
     "'no-tabs' should not be set higher than '0' or 'off' without proper " +
@@ -65,7 +65,7 @@ test("Prettier special rules used should be valid.", (t) => {
     } = linesAroundCommentOption;
     // 'beforeBlockComment' is true by default so it will still take into
     // effect even if it is not set, see:
-    // https://eslint.org/docs/rules/lines-around-comment#options.
+    // https://eslint.org/docs/rules/lines-around-comment#options
     if (
       typeof beforeBlockComment === "undefined" ||
       beforeBlockComment === true ||
