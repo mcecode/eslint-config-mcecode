@@ -153,9 +153,9 @@ The following are the said rules:
 - [`default-case`](https://eslint.org/docs/rules/default-case)
 - [`no-fallthrough`](https://eslint.org/docs/rules/no-fallthrough)
 
-Below are examples of how to suppress their warnings using meaningful comments:
+Below are examples of how to suppress their warnings using meaningful comments.
 
-Instead of disabling `no-empty` or `no-empty-function`, you can explain why they are empty.
+Instead of disabling `no-empty` or `no-empty-function`, you can explain why they are empty:
 
 ```js
 try {
@@ -169,7 +169,7 @@ function doSomething() {
 }
 ```
 
-Instead of disabling `default-case` or `no-fallthrough`, you can state why fall through behavior or not putting a default case is intended.
+Instead of disabling `default-case` or `no-fallthrough`, you can state why fall through behavior or not putting a default case is intended:
 
 ```js
 switch (key) {
