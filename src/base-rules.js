@@ -179,6 +179,6 @@ module.exports = {
   "prefer-spread": "error",
   "prefer-template": "error",
   "require-yield": "error",
-  "sort-imports": "error",
+  "sort-imports": ["error", { allowSeparatedGroups: true }],
   "symbol-description": "error"
 };
