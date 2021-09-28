@@ -1,6 +1,8 @@
+const util = require("node:util");
+
 // Destructuring default fixes https://github.com/avajs/ava/issues/2539
 const { default: test } = require("ava");
-const { format } = require("util");
+
 const {
   BASE_RULES_FILE,
   PRETTIER_SPECIAL_RULES_FILE
@@ -13,7 +15,9 @@ test("Base rules should have no conflicts with prettier rules.", (t) => {
   const conflicts = baseRules.filter((rule) => prettierRules.includes(rule));
 
   if (conflicts.length !== 0) {
-    t.fail(`Conflict with prettier rules found: ${format("%O", conflicts)}`);
+    t.fail(
+      `Conflict with prettier rules found: ${util.format("%O", conflicts)}`
+    );
   }
 
   t.pass();

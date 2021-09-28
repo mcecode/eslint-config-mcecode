@@ -1,6 +1,8 @@
+const util = require("node:util");
+
 // Destructuring default fixes https://github.com/avajs/ava/issues/2539
 const { default: test } = require("ava");
-const { format } = require("util");
+
 const {
   BASE_RULES_FILE,
   PRETTIER_SPECIAL_RULES_FILE
@@ -25,7 +27,7 @@ test("There should be no disabled rules.", (t) => {
   });
 
   if (disabledRules.length !== 0) {
-    t.fail(`Disabled rules found: ${format("%O", disabledRules)}`);
+    t.fail(`Disabled rules found: ${util.format("%O", disabledRules)}`);
   }
 
   t.pass();

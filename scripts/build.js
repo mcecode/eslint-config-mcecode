@@ -1,11 +1,6 @@
-const {
-  copyFileSync,
-  existsSync,
-  mkdirSync,
-  rmSync,
-  writeFileSync
-} = require("fs");
-const { join } = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
+
 const {
   ROOT_DIR,
   BUILD_DIR,
@@ -30,22 +25,22 @@ const CONFIGS_TO_GENERATE_FROM_SRC_DIR = [
   }
 ];
 
-if (existsSync(BUILD_DIR)) {
-  rmSync(BUILD_DIR, { recursive: true });
+if (fs.existsSync(BUILD_DIR)) {
+  fs.rmSync(BUILD_DIR, { recursive: true });
 }
 
-mkdirSync(BUILD_DIR);
+fs.mkdirSync(BUILD_DIR);
 
 FILES_TO_COPY_FROM_ROOT_DIR.forEach((file) => {
-  copyFileSync(
-    join(ROOT_DIR, file.name),
-    join(BUILD_DIR, file.newName ?? file.name)
+  fs.copyFileSync(
+    path.join(ROOT_DIR, file.name),
+    path.join(BUILD_DIR, file.newName ?? file.name)
   );
 });
 
 CONFIGS_TO_GENERATE_FROM_SRC_DIR.forEach((config) => {
-  writeFileSync(
-    join(BUILD_DIR, config.name),
+  fs.writeFileSync(
+    path.join(BUILD_DIR, config.name),
     `module.exports=${JSON.stringify({ rules: config.rules })}`
   );
 });

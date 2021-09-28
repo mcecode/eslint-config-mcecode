@@ -1,11 +1,14 @@
-const { join } = require("path");
+const path = require("node:path");
 
-const ROOT_DIR = join(__dirname, "..");
-const BUILD_DIR = join(ROOT_DIR, "build");
-const SRC_DIR = join(ROOT_DIR, "src");
+const ROOT_DIR = path.join(__dirname, "..");
+const BUILD_DIR = path.join(ROOT_DIR, "build");
+const SRC_DIR = path.join(ROOT_DIR, "src");
 
-const BASE_RULES_FILE = join(SRC_DIR, "base-rules.js");
-const PRETTIER_SPECIAL_RULES_FILE = join(SRC_DIR, "prettier-special-rules.js");
+const BASE_RULES_FILE = path.join(SRC_DIR, "base-rules.js");
+const PRETTIER_SPECIAL_RULES_FILE = path.join(
+  SRC_DIR,
+  "prettier-special-rules.js"
+);
 
 module.exports = {
   ROOT_DIR,

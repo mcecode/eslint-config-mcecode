@@ -1,12 +1,13 @@
 // Destructuring default fixes https://github.com/avajs/ava/issues/2539
 const { default: test } = require("ava");
-const { ESLint } = require("eslint");
+const eslint = require("eslint");
+
 const {
   BASE_RULES_FILE,
   PRETTIER_SPECIAL_RULES_FILE
 } = require("../configs/paths");
 
-const eslint = new ESLint({
+const eslintInstance = new eslint.ESLint({
   useEslintrc: false,
   overrideConfig: {
     env: {
@@ -21,14 +22,14 @@ const eslint = new ESLint({
 });
 
 test("ESLint rules should be valid.", async (t) => {
-  const [lintResults] = await eslint.lintText("");
+  const [lintResults] = await eslintInstance.lintText("");
 
   t.is(lintResults.messages.length, 0);
   t.is(lintResults.errorCount, 0);
 });
 
 test("ESLint should not find errors.", async (t) => {
-  const [lintResults] = await eslint.lintText(`
+  const [lintResults] = await eslintInstance.lintText(`
     const one = 1;
     console.log(one);
   `);
@@ -39,7 +40,7 @@ test("ESLint should not find errors.", async (t) => {
 });
 
 test("ESLint should find errors.", async (t) => {
-  const [lintResults] = await eslint.lintText("label: void null;");
+  const [lintResults] = await eslintInstance.lintText("label: void null;");
 
   const rulesViolated = lintResults.messages.map((message) => message.ruleId);
 
