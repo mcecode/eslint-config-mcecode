@@ -20,7 +20,7 @@ npm install --save-dev eslint-config-mcecode
 
 [Extend](https://eslint.org/docs/user-guide/configuring/configuration-files#extending-configuration-files) this package by adding it to your `.eslintrc.*` file or in the `eslintConfig` property of your `package.json`.
 
-In your `.eslintrc.js` or `.eslintrc.cjs`:
+In your `.eslintrc.js` or `.eslintrc.cjs`,
 
 ```js
 module.exports = {
@@ -28,13 +28,13 @@ module.exports = {
 };
 ```
 
-In your `.eslintrc.yaml` or `.eslintrc.yml`:
+In your `.eslintrc.yaml` or `.eslintrc.yml`,
 
 ```yaml
 extends: mcecode
 ```
 
-In your `.eslintrc.json`:
+In your `.eslintrc.json`,
 
 ```json
 {
@@ -42,7 +42,7 @@ In your `.eslintrc.json`:
 }
 ```
 
-In your `package.json`:
+In your `package.json`,
 
 ```json
 {
@@ -58,7 +58,7 @@ In your `package.json`:
 
 To work with Prettier, this package does not turn on any rules that may conflict with Prettier. It does not turn off rules. This means that if you plan to use it with other configs, you may still need to use [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) to turn off any rules that those packages turn on that may conflict with Prettier. However, [as will be discussed next](#when-using-with-prettier), this package enables special rules. These rules may be turned off if used with eslint-config-prettier. To prevent this, put this config at the end of your `extends` array.
 
-In your `.eslintrc.json`:
+In your `.eslintrc.json`,
 
 ```jsonc
 {
@@ -84,7 +84,7 @@ Prettier sets a soft line limit for code and cannot format long strings, regular
 
 This means that when using this package, you should set Prettier's `printWidth` option to a value less than 100.
 
-In your `.prettierrc.json`:
+In your `.prettierrc.json`,
 
 ```json
 {
@@ -94,7 +94,7 @@ In your `.prettierrc.json`:
 
 Additionally, you may turn this rule off if you do not wish to set hard limits on line length.
 
-In your `.eslintrc.json`:
+In your `.eslintrc.json`,
 
 ```json
 {
@@ -112,7 +112,7 @@ There are some edge cases that you may run into where Prettier's formatting may 
 
 If you do not want to deal with or risk running into those edge cases, you can turn this rule off.
 
-In your `.eslintrc.json`:
+In your `.eslintrc.json`,
 
 ```json
 {
@@ -132,7 +132,7 @@ This package enables this rule to enforce double (") quotes and to forbid backti
 
 If you wish to use single (') quotes or backticks for strings, you can set your config to support that based on the ESLint documentation linked above. You may also choose to turn this rule off.
 
-In your `.eslintrc.json`:
+In your `.eslintrc.json`,
 
 ```json
 {
@@ -193,8 +193,8 @@ If you find anything wrong or would like to suggest changes, issues and pull req
 
 The [`rules`](rules) directory contains the files that would most likely be of interest to you. The following are the files:
 
-- [`base-rules.js`](rules/base-rules.js) contains rules that should not conflict with Prettier
-- [`prettier-special-rules.js`](rules/prettier-special-rules.js) contains rules that may conflict with Prettier, [as discussed earlier](#when-using-with-prettier)
+- [`base-rules.js`](rules/base-rules.js) contains rules that should not conflict with Prettier.
+- [`prettier-special-rules.js`](rules/prettier-special-rules.js) contains rules that may conflict with Prettier, [as discussed earlier](#when-using-with-prettier).
 
 Be sure to find and fix any errors before you submit a pull request by running the following commands.
 
