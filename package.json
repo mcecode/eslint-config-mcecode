@@ -4,7 +4,7 @@
   "scripts": {
     "build": "npm test && npm run lint && node scripts/build.js",
     "format": "prettier . -w",
-    "lint": "eslint . --cache --cache-location node_modules -f codeframe && prettier . -c",
+    "lint": "eslint . --cache --cache-location node_modules && prettier . -c",
     "test": "ava --verbose"
   },
   "devDependencies": {
