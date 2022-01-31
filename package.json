@@ -5,13 +5,13 @@
     "build": "npm test && npm run lint && node scripts/build.js",
     "format": "prettier . -w",
     "lint": "eslint . --cache --cache-location node_modules && prettier . -c",
-    "test": "ava --verbose"
+    "test": "ava"
   },
   "devDependencies": {
-    "ava": "^3.15.0",
+    "ava": "^4.0.1",
     "eslint": "^8.2.0",
-    "eslint-config-mcecode": "^1.0.0",
+    "eslint-config-mcecode": "^2.0.0",
     "eslint-config-prettier": "^8.3.0",
-    "prettier": "2.4.1"
+    "prettier": "2.5.1"
   }
 }
