@@ -2,6 +2,11 @@
 
 This project adheres to the [Semantic Versioning 2.0 Specification](https://semver.org).
 
+## 3.0.0 - May 31, 2022
+
+- Add `no-constant-binary-expression` rule.
+- Require ESLint >=8.14.0 as peer dependency.
+
 ## 2.0.0 - November 12, 2021
 
 - Add `no-unused-private-class-members` rule.

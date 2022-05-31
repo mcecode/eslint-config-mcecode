@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-mcecode",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "type": "commonjs",
   "license": "Apache-2.0",
   "author": "Matthew Espino",
@@ -10,6 +10,6 @@
   "bugs": "https://github.com/mcecode/eslint-config-mcecode/issues",
   "repository": "mcecode/eslint-config-mcecode",
   "peerDependencies": {
-    "eslint": ">=8.1.0"
+    "eslint": ">=8.14.0"
   }
 }
