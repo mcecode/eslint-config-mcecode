@@ -10,7 +10,7 @@
   "devDependencies": {
     "ava": "^4.0.1",
     "eslint": "^8.2.0",
-    "eslint-config-mcecode": "^2.0.0",
+    "eslint-config-mcecode": "^3.0.0",
     "eslint-config-prettier": "^8.3.0",
     "prettier": "2.5.1"
   }
