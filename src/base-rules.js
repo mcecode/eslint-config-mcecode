@@ -54,7 +54,7 @@ module.exports = {
   ],
   "no-unused-private-class-members": "error",
   "no-unused-vars": "error",
-  "no-use-before-define": "error",
+  "no-use-before-define": ["error", "nofunc"],
   "no-useless-backreference": "error",
   "require-atomic-updates": "error",
   "use-isnan": ["error", { enforceForIndexOf: true }],
