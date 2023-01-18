@@ -8,10 +8,10 @@
     "test": "ava"
   },
   "devDependencies": {
-    "ava": "^4.0.1",
-    "eslint": "^8.2.0",
+    "ava": "^5.1.1",
+    "eslint": "^8.32.0",
     "eslint-config-mcecode": "^3.0.0",
-    "eslint-config-prettier": "^8.3.0",
-    "prettier": "2.5.1"
+    "eslint-config-prettier": "^8.6.0",
+    "prettier": "2.8.3"
   }
 }
