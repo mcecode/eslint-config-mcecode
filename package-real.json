@@ -10,6 +10,6 @@
   "bugs": "https://github.com/mcecode/eslint-config-mcecode/issues",
   "repository": "mcecode/eslint-config-mcecode",
   "peerDependencies": {
-    "eslint": ">=8.14.0"
+    "eslint": ">=8.27.0"
   }
 }

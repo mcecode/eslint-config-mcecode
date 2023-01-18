@@ -6,7 +6,7 @@ An opinionated set of [ESLint](https://github.com/eslint/eslint) rules that work
 
 ## Requirements
 
-This package requires ESLint version 8.14.0 or later. It also assumes that you are working in an ECMAScript 6 or later environment.
+This package requires ESLint version 8.27.0 or later. It also assumes that you are working in an ECMAScript 2018 or later environment.
 
 ## Installation
 
