@@ -2,6 +2,12 @@
 
 This project adheres to the [Semantic Versioning 2.0 Specification](https://semver.org).
 
+## 4.0.0 - January 18, 2023
+
+- Add `no-new-native-nonconstructor` rule.
+- Add `nofunc` option to `no-use-before-define` rule.
+- Require ESLint >=8.27.0 as peer dependency.
+
 ## 3.0.0 - May 31, 2022
 
 - Add `no-constant-binary-expression` rule.
