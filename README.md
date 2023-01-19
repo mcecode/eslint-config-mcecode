@@ -1,8 +1,8 @@
 # eslint-config-mcecode
 
-An opinionated set of [ESLint](https://github.com/eslint/eslint) rules that work with [Prettier](https://github.com/prettier/prettier) out of the box.
+An opinionated set of [ESLint](https://eslint.org) rules that work with [Prettier](https://prettier.io) out of the box.
 
-**Note:** This package only ships rules, you would still need to set [`env` and other configs](https://eslint.org/docs/user-guide/configuring) to properly tell ESLint how you want it to analyze your code, so that it knows what to expect, such as what global variables you will be using.
+**Note:** This package only ships rules, you would still need to set [`env` and other configs](https://eslint.org/docs/latest/use/configure) to properly tell ESLint how you want it to analyze your code, so that it knows what to expect, such as what global variables you will be using.
 
 ## Requirements
 
@@ -14,11 +14,11 @@ This package requires ESLint version 8.27.0 or later. It also assumes that you a
 npm install --save-dev eslint-config-mcecode
 ```
 
-**Note:** This package lists ESLint as a peer dependency as [they instructed when creating shareable configs](https://eslint.org/docs/developer-guide/shareable-configs#publishing-a-shareable-config). When installing packages, [npm versions before version 7 do not install peer dependencies by default](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#peerdependencies), so you would still need to install ESLint as a separate dependency when using npm version 6 or lower.
+**Note:** This package lists ESLint as a peer dependency as [they instructed when creating shareable configs](https://eslint.org/docs/latest/extend/shareable-configs#publishing-a-shareable-config). When installing packages, [npm versions before version 7 do not install peer dependencies by default](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#peerdependencies), so you would still need to install ESLint as a separate dependency when using npm version 6 or lower.
 
 ## Usage
 
-[Extend](https://eslint.org/docs/user-guide/configuring/configuration-files#extending-configuration-files) this package by adding it to your `.eslintrc.*` file or in the `eslintConfig` property of your `package.json`.
+[Extend](https://eslint.org/docs/latest/use/configure/configuration-files#extending-configuration-files) this package by adding it to your `.eslintrc.*` file or in the `eslintConfig` property of your `package.json`.
 
 In your `.eslintrc.js` or `.eslintrc.cjs`,
 
@@ -76,7 +76,7 @@ Most of the [special rules](https://github.com/prettier/eslint-config-prettier#s
 
 #### `max-len`
 
-[ESLint docs](https://eslint.org/docs/rules/max-len) | [Prettier docs](https://github.com/prettier/eslint-config-prettier#max-len)
+[ESLint docs](https://eslint.org/docs/latest/rules/max-len) | [Prettier docs](https://github.com/prettier/eslint-config-prettier#max-len)
 
 **Note:** There is no need to worry about this rule if you will not change [Prettier's default `printWidth` option](https://prettier.io/docs/en/options.html#print-width).
 
@@ -106,7 +106,7 @@ In your `.eslintrc.json`,
 
 #### `no-unexpected-multiline`
 
-[ESLint docs](https://eslint.org/docs/rules/no-unexpected-multiline) | [Prettier docs](https://github.com/prettier/eslint-config-prettier#no-unexpected-multiline)
+[ESLint docs](https://eslint.org/docs/latest/rules/no-unexpected-multiline) | [Prettier docs](https://github.com/prettier/eslint-config-prettier#no-unexpected-multiline)
 
 There are some edge cases that you may run into where Prettier's formatting may conflict with this rule. Please refer to Prettier's documentation linked above which explains those edge cases and how to mitigate them.
 
@@ -124,7 +124,7 @@ In your `.eslintrc.json`,
 
 #### `quotes`
 
-[ESLint docs](https://eslint.org/docs/rules/quotes) | [Prettier docs](https://github.com/prettier/eslint-config-prettier#quotes)
+[ESLint docs](https://eslint.org/docs/latest/rules/quotes) | [Prettier docs](https://github.com/prettier/eslint-config-prettier#quotes)
 
 **Note:** There is no need to worry about this rule if you will not change [Prettier's default `singleQuote` option](https://prettier.io/docs/en/options.html#quotes).
 
@@ -144,14 +144,14 @@ In your `.eslintrc.json`,
 
 ### Special comments
 
-ESLint allows disabling rule warnings using [configuration comments](https://eslint.org/docs/user-guide/configuring/rules#using-configuration-comments-1) such as `/* eslint-disable no-empty */`. This package enables rules whose warnings can be suppressed using regular comments that can help provide more context than just turning off the rule.
+ESLint allows disabling rule warnings using [configuration comments](https://eslint.org/docs/latest/use/configure/rules#using-configuration-comments-1) such as `/* eslint-disable no-empty */`. This package enables rules whose warnings can be suppressed using regular comments that can help provide more context than just turning off the rule.
 
 The following are the said rules:
 
-- [`no-empty`](https://eslint.org/docs/rules/no-empty)
-- [`no-empty-function`](https://eslint.org/docs/rules/no-empty-function)
-- [`default-case`](https://eslint.org/docs/rules/default-case)
-- [`no-fallthrough`](https://eslint.org/docs/rules/no-fallthrough)
+- [`no-empty`](https://eslint.org/docs/latest/rules/no-empty)
+- [`no-empty-function`](https://eslint.org/docs/latest/rules/no-empty-function)
+- [`default-case`](https://eslint.org/docs/latest/rules/default-case)
+- [`no-fallthrough`](https://eslint.org/docs/latest/rules/no-fallthrough)
 
 Below are examples of how to suppress their warnings using meaningful comments.
 
@@ -191,10 +191,10 @@ switch (key) {
 
 If you find anything wrong or would like to suggest changes, issues and pull requests are welcome.
 
-The [`rules`](rules) directory contains the files that would most likely be of interest to you. The following are the files:
+The [`src`](src) directory contains the files that would most likely be of interest to you. The following are the files:
 
-- [`base-rules.js`](rules/base-rules.js) contains rules that should not conflict with Prettier.
-- [`prettier-special-rules.js`](rules/prettier-special-rules.js) contains rules that may conflict with Prettier, [as discussed earlier](#when-using-with-prettier).
+- [`base-rules.js`](src/base-rules.js) contains rules that should not conflict with Prettier.
+- [`prettier-special-rules.js`](src/prettier-special-rules.js) contains rules that may conflict with Prettier, [as discussed earlier](#when-using-with-prettier).
 
 Be sure to find and fix any errors before you submit a pull request by running the following commands.
 
@@ -231,7 +231,7 @@ This project adheres to the [Semantic Versioning 2.0 Specification](https://semv
 Major releases introduce changes that alter how ESLint lints your code which would most likely break tests or builds. These include:
 
 - Adding rules and/or options that enable new behavior
-- Removing options that disabled linting behavior (e.g., removing the [`ignoreUrls: true`](https://eslint.org/docs/rules/max-len#ignoreurls) option for the [`max-len`](https://eslint.org/docs/rules/max-len) rule would make ESLint start flagging lines that have long URLs, which may break tests and builds that currently pass)
+- Removing options that disabled linting behavior (e.g., removing the [`ignoreUrls: true`](https://eslint.org/docs/latest/rules/max-len#ignoreurls) option for the [`max-len`](https://eslint.org/docs/latest/rules/max-len) rule would make ESLint start flagging lines that have long URLs, which may break tests and builds that currently pass)
 - Increasing the error level of a rule (i.e., setting a rule's ID from `"warn"` to `"error"`)
 - Changing the package's required ESLint version
 
@@ -240,14 +240,14 @@ Major releases introduce changes that alter how ESLint lints your code which wou
 Minor releases introduce changes that alter how ESLint lints your code which would most likely not break tests or builds. These include:
 
 - Removing rules
-- Removing options that enabled linting behavior (e.g., removing the [`skipStrings: false`](https://eslint.org/docs/rules/no-irregular-whitespace#skipstrings) option for the [`no-irregular-whitespace`](https://eslint.org/docs/rules/no-irregular-whitespace) rule would stop ESLint from checking strings with irregular whitespace characters, which may pass tests and builds that currently fail)
+- Removing options that enabled linting behavior (e.g., removing the [`skipStrings: false`](https://eslint.org/docs/latest/rules/no-irregular-whitespace#skipstrings) option for the [`no-irregular-whitespace`](https://eslint.org/docs/latest/rules/no-irregular-whitespace) rule would stop ESLint from checking strings with irregular whitespace characters, which may pass tests and builds that currently fail)
 - Decreasing the error level of a rule (i.e., setting a rule's ID from `"error"` to `"warn"`)
 
 ### Patch
 
 Patch releases introduce changes that do not alter how ESLint lints your code. These include:
 
-- Removing redundant rules and/or options (e.g., setting the [`defaultAssignment`](https://eslint.org/docs/rules/no-unneeded-ternary#defaultassignment) option to `true` for the [`no-unneeded-ternary`](https://eslint.org/docs/rules/no-unneeded-ternary) rule is unnecessary and does not do anything because it is the default option, therefore, it can be removed without changing ESLint's behavior)
+- Removing redundant rules and/or options (e.g., setting the [`defaultAssignment`](https://eslint.org/docs/latest/rules/no-unneeded-ternary#defaultassignment) option to `true` for the [`no-unneeded-ternary`](https://eslint.org/docs/latest/rules/no-unneeded-ternary) rule is unnecessary and does not do anything because it is the default option, therefore, it can be removed without changing ESLint's behavior)
 
 ## License
 
